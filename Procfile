@@ -1,2 +1,1 @@
-web: gunicorn DigitalFixProject.wsgi
-
+web: gunicorn DigitalFixProject.wsgi:application
