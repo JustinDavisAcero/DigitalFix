@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Registrarse - DigitalFix{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-box">
+        <h2>Crear cuenta</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Nombre de usuario" required>
+            <input type="text" name="nombre" placeholder="Nombre completo (opcional)">
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="text" name="telefono" placeholder="Teléfono (opcional)">
+            <input type="text" name="direccion" placeholder="Dirección (opcional)">
+            <input type="password" name="password1" placeholder="Contraseña" required>
+            <input type="password" name="password2" placeholder="Repetir contraseña" required>
+            <button type="submit">Crear cuenta</button>
+        </form>
+        <a href="{% url 'login' %}" class="back-link">¿Ya tienes cuenta? Iniciar sesión</a>
+    </div>
+</div>
+{% endblock %}

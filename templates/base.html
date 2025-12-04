@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}DigitalFix{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<header>
+    <div class="site-branding">
+        <img src="{% static 'fotos/logo.jpg' %}" alt="Logo DigitalFix" class="logo-header-img">
+        <h1>DigitalFix</h1>
+    </div>
+
+    <nav>
+        <a href="{% url 'index' %}">Inicio</a>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'estado_reparacion' %}">Estado</a>
+            <a href="{% url 'agendar_cita' %}">Agendar Cita</a>
+            <a href="{% url 'retiro_entrega' %}">Retiro/Entrega</a>
+            <a href="{% url 'mensajes' %}">Mensajes</a>
+            <a href="{% url 'perfil_cliente' %}">Perfil</a>
+            <a href="{% url 'logout' %}" style="color:#ff8080;">Cerrar Sesión</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'registrarse' %}">Registrarse</a>
+            <a href="{% url 'admin:index' %}">Admin</a>
+        {% endif %}
+    </nav>
+</header>
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+        <p class="message {{ message.tags }}">{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="footer-fijo">
+    <p>© 2025 DigitalFix - Todos los derechos reservados</p>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/digitalfixcco/" target="_blank">Instagram</a>
+    </div>
+</footer>
+</body>
+</html>

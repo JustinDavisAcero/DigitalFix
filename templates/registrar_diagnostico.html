@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Diagnóstico Técnico{% endblock %}
+{% block content %}
+<h2>Registrar Diagnóstico para {{ dispositivo.numero_orden }}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar Diagnóstico</button>
+</form>
+{% endblock %}

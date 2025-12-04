@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Retiro / Entrega - DigitalFix{% endblock %}
+{% block content %}
+<div class="form-container">
+    <h2>Solicitar Retiro o Entrega a Domicilio</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Solicitar</button>
+    </form>
+</div>
+{% endblock %}

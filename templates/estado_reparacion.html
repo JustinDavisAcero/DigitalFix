@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Consultar Estado - DigitalFix{% endblock %}
+{% block content %}
+<div class="form-container">
+    <h2>Consultar Estado de Reparación</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <p>Buscar por número de orden:</p>
+        <input type="text" name="orden" placeholder="ORD-0001">
+        <p>O buscar por correo del cliente:</p>
+        <input type="email" name="correo" placeholder="correo@ejemplo.com">
+        <button type="submit">Consultar</button>
+    </form>
+
+    {% if estado %}
+        <div style="margin-top:20px;">
+            <h3>Estado para la orden {{ orden }}:</h3>
+            <p>{{ estado }}</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
