@@ -1,1 +1,1 @@
-web: gunicorn DigitalFixProject.wsgi
+web: ~/.local/bin/gunicorn DigitalFixProject.wsgi
