@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
-# exit on error
 set -o errexit
 
-# 1. Instalar dependencias usando python3.11 (Soluciona el error de Pillow)
+# Asegurar pip actualizado
+python3.11 -m pip install --upgrade pip
+
+# Instalar dependencias EN python3.11
 python3.11 -m pip install -r requirements.txt
 
-# 2. Recolectar archivos estáticos
+# FORZAR la instalación de gunicorn dentro de Python3.11
+python3.11 -m pip install gunicorn
+
+# Recolectar archivos estáticos
 python3.11 manage.py collectstatic --no-input
 
-# 3. Aplicar migraciones
+# Aplicar migraciones
 python3.11 manage.py migrate
