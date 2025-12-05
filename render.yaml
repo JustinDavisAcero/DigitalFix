@@ -2,6 +2,6 @@ services:
   - type: web
     name: digitalfix
     env: python
+    pythonVersion: "3.11.9"
     buildCommand: "./build.sh"
     startCommand: "gunicorn DigitalFixProject.wsgi:application"
-    pythonVersion: "3.11"
