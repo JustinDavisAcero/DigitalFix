@@ -1,3 +1,1 @@
-web: python3.11 -m gunicorn DigitalFixProject.wsgi
-worker: python3.11 -m gunicorn DigitalFixProject.asgi
-
+web: python3 -m gunicorn DigitalFixProject.wsgi:application
